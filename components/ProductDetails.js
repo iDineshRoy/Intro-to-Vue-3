@@ -1,7 +1,7 @@
 app.component('product-details', {
     props: {
         details: {
-            type: String,
+            type: Array,
             required: true
         }
     },
@@ -9,14 +9,8 @@ app.component('product-details', {
 
         /*html*/
         `<div class='product-details'>
-        <p>Details: {{ detailsCompute }}</p>
+        <ul>
+        <li v-for="(detail, i) in details">{{ i+1 }}. {{ detail }}</li>
+        </ul>
         </div>`,
-    computed: {
-        detailsCompute() {
-            if(this.details){
-                return "What is this?"
-            }
-            return "I don't know how."
-        },
-    }
 })
